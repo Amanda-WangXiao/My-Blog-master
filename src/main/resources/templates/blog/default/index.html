@@ -8,6 +8,8 @@
         <div class="row">
             <div class="col-md-8 blog-main">
                 <th:block th:if="${null != blogPageResult}">
+<!--                    th:each属性用于迭代循环，语法：th:each="obj,iterStat:${objList}"-->
+<!--                    迭代对象可以是List,Map,数组等-->
                     <th:block th:each="blog,iterStat : ${blogPageResult.list}">
                         <div class="col-md-6 col-sm-6 blog-main-card">
                             <article class="blog-summary">
@@ -30,6 +32,14 @@
                                 </header>
                             </article>
                         </div>
+<!--                        iterStat称作状态变量，属性有：-->
+<!--                            index:当前迭代对象的index（从0开始计算）-->
+<!--                            count: 当前迭代对象的index(从1开始计算)-->
+<!--                            size:被迭代对象的大小-->
+<!--                            current:当前迭代变量-->
+<!--                            even/odd:布尔值，当前循环是否是偶数/奇数（从0开始计算）-->
+<!--                            first:布尔值，当前循环是否是第一个-->
+<!--                            last:布尔值，当前循环是否是最后一个-->
                         <th:block th:if="${iterStat.last and iterStat.count%2==1}">
                             <div class="col-md-6 col-sm-6 blog-main-card">
                             </div>
