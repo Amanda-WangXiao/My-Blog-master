@@ -57,9 +57,11 @@ public class MyBlogController {
         if (blogPageResult == null) {
             return "error/error_404";
         }
+
         request.setAttribute("blogPageResult", blogPageResult);
-        request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
+//        首页侧边栏数据列表 : 0-点击最多 1-最新发布
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
+        request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
         request.setAttribute("pageName", "首页");
         request.setAttribute("configurations", configService.getAllConfigs());
