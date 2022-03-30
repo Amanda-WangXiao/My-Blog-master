@@ -187,7 +187,7 @@ public class BlogServiceImpl implements BlogService {
         }
         return "修改失败";
     }
-
+//test
     @Override
     public PageResult getBlogsForIndexPage(int page) {
         Map params = new HashMap();
