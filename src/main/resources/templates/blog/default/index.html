@@ -6,6 +6,8 @@
 <div class="widewrapper main">
     <div class="container">
         <div class="row">
+
+<!--            展示主页面-->
             <div class="col-md-8 blog-main">
                 <th:block th:if="${null != blogPageResult}">
 <!--                    th:each属性用于迭代循环，语法：th:each="obj,iterStat:${objList}"-->
@@ -47,7 +49,10 @@
                     </th:block>
                 </th:block>
                 <th:block th:if="${null != blogPageResult}">
+
+<!--                    翻页功能-->
                     <ul class="blog-pagination">
+<!--                        左标签-->
                         <li th:class="${blogPageResult.currPage==1}?'disabled' : ''"><a
                                 th:href="@{${blogPageResult.currPage==1}?'##':'/page/' + ${blogPageResult.currPage-1}}">&laquo;</a>
                         </li>
@@ -60,6 +65,7 @@
                         <li th:if="${blogPageResult.currPage-1 >=1}"><a
                                 th:href="@{'/page/' + ${blogPageResult.currPage-1}}"
                                 th:text="${blogPageResult.currPage -1}">1</a></li>
+<!--                        右标签-->
                         <li class="active"><a href="#" th:text="${blogPageResult.currPage}">1</a></li>
                         <li th:if="${blogPageResult.currPage+1 <=blogPageResult.totalPage}"><a
                                 th:href="@{'/page/' + ${blogPageResult.currPage+1}}"
@@ -76,6 +82,7 @@
                     </ul>
                 </th:block>
             </div>
+
             <aside class="col-md-4 blog-aside">
                 <div class="aside-widget">
                     <header>
@@ -93,6 +100,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="aside-widget">
                     <header>
                         <h3>最新发布</h3>
@@ -109,6 +117,7 @@
                         </ul>
                     </div>
                 </div>
+
                 <div class="aside-widget">
                     <header>
                         <h3>标签栏</h3>
