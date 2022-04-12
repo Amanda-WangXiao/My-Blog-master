@@ -16,17 +16,22 @@
     <script th:src="@{/blog/default/js/respond.js}"></script>
     <![endif]-->
 </head>
+
 <header th:fragment="header-fragment">
     <div class="widewrapper masthead">
         <div class="container">
+<!--            网页Logo   配置来自 ConfigServiceImpl.java-->
             <a th:href="@{/index}" id="logo">
                 <img th:src="@{${configurations.get('websiteLogo')}}" class="logo-img" alt="my personal blog">
             </a>
+
+<!--            ？？？-->
             <div id="mobile-nav-toggle" class="pull-right">
                 <a href="#" data-toggle="collapse" data-target=".clean-nav .navbar-collapse">
                     <i class="fa fa-bars"></i>
                 </a>
             </div>
+
             <nav class="pull-right clean-nav">
                 <div class="collapse navbar-collapse">
                     <ul class="nav nav-pills navbar-nav">
@@ -52,9 +57,13 @@
     <div class="widewrapper subheader">
         <div class="container">
             <div class="clean-breadcrumb">
+<!--                pageName：首页-->
+<!--                MyBlogController.java  ：   request.setAttribute("pageName", "首页");-->
                 <th:block th:text="${pageName}"></th:block>
+<!--                搜索时改变为："搜索：xxxx"-->
                 <th:block th:if="${null != keyword}" th:text="' : '+${keyword}"></th:block>
             </div>
+
             <div class="clean-searchbox">
                 <form method="get" onsubmit="return false;" accept-charset="utf-8">
                     <input class="searchfield" id="searchbox" type="text" placeholder="  搜索">

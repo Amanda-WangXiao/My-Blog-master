@@ -65,27 +65,35 @@
         </div>
     </div>
 </header>
+
 <div class="widewrapper main">
     <div class="container">
         <div class="row">
             <div class="col-md-12 blog-main">
+
                 <article class="blog-post">
                     <div class="body" id="blog-content">
+<!--                        文章标题-->
                         <h1 th:text="${blogDetailVO.blogTitle}"></h1>
                         <div class="meta">
+
                             <i class="fa fa-calendar"></i>
+<!--                            创建日期-->
                             <th:block th:text="${#dates.format(blogDetailVO.createTime, 'yyyy-MM-dd')}"></th:block>
                             <span class="separator">&#x2F;</span>
-                            <i class="fa fa-comments"></i><span class="data"><a
-                                href="#comments"><th:block
-                                th:text="${blogDetailVO.commentCount}"></th:block>条评论</a></span>
+                            <i class="fa fa-comments"></i><span class="data"><a href="#comments">
+<!--                            评论数-->
+                            <th:block th:text="${blogDetailVO.commentCount}"></th:block>条评论</a></span>
                             <span class="separator">&#x2F;</span>
                             <i class="fa fa-street-view"></i>
+<!--                            浏览数-->
                             <th:block th:text="${blogDetailVO.blogViews}"></th:block>
                             浏览
                         </div>
+
                         <div class="meta">
                             <p class="post-tags">
+<!--                                tag显示-->
                                 <th:block th:each="tag : ${blogDetailVO.blogTags}">
                                     <a th:href="@{'/tag/' + ${tag}}">
                                         <th:block th:text="${tag}"></th:block>
@@ -93,12 +101,18 @@
                                 </th:block>
                             </p>
                         </div>
+
+<!--                        正文内容-->
                         <th:block th:utext="${blogDetailVO.blogContent}"/>
                     </div>
                 </article>
+
+<!--                声明-->
                 <aside class="blog-rights clearfix">
                     <p>本站文章除注明转载/出处外，皆为作者原创，欢迎转载，但未经作者同意必须保留此段声明，且在文章页面明显位置给出原文链接，否则保留追究法律责任的权利。</p>
                 </aside>
+
+<!--                评论-->
                 <aside class="comments" id="comments">
                     <th:block th:if="${null != commentPageResult}">
                         <th:block th:each="comment,iterStat : ${commentPageResult.list}">
@@ -117,6 +131,7 @@
                                     <th:block th:text="${comment.commentBody}"></th:block>
                                 </div>
                             </article>
+
                             <th:block th:unless="${#strings.isEmpty(comment.replyBody)}">
                                 <article class="comment reply">
                                     <header class="clearfix">
