@@ -50,6 +50,7 @@
         </if>
         order by blog_id desc
         <if test="start!=null and limit!=null">
+--         limit #{startIndex},{pageSize} : 从startIndex+1开始，取pageSize个记录
             limit #{start},#{limit}
         </if>
     </select>

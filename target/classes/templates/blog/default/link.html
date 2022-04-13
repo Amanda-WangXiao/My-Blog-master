@@ -15,45 +15,49 @@
                                 <ul>
                                     <th:block th:each="favoriteLink : ${favoriteLinks}">
                                         <li><a th:href="@{${favoriteLink.linkUrl}}"
-                                               th:text="${favoriteLink.linkName}">友链</a>
+                                               th:text="${favoriteLink.linkName}">{linkName}</a>
                                             -
                                             <th:block th:text="${favoriteLink.linkDescription}"></th:block>
                                         </li>
                                     </th:block>
                                 </ul>
                             </th:block>
+
                             <th:block th:unless="${#lists.isEmpty(recommendLinks)}">
                                 <h2>推荐网站</h2>
                                 <ul>
                                     <th:block th:each="recommendLink : ${recommendLinks}">
-                                        <li><a th:href="@{${recommendLink.linkUrl}}" th:text="${recommendLink.linkName}">推荐网站</a>
+                                        <li><a th:href="@{${recommendLink.linkUrl}}"
+                                               th:text="${recommendLink.linkName}">{linkName}</a>
                                             -
                                             <th:block th:text="${recommendLink.linkDescription}"></th:block>
                                         </li>
                                     </th:block>
                                 </ul>
                             </th:block>
+
                             <th:block th:unless="${#lists.isEmpty(personalLinks)}">
                                 <h2>个人链接</h2>
                                 <ul>
                                     <th:block th:each="personalLink : ${personalLinks}">
                                         <li><a th:href="@{${personalLink.linkUrl}}"
-                                               th:text="${personalLink.linkName}">个人链接</a>
+                                               th:text="${personalLink.linkName}">{linkName}</a>
                                             -
                                             <th:block th:text="${personalLink.linkDescription}"></th:block>
                                         </li>
                                     </th:block>
                                 </ul>
                             </th:block>
+
                             <h2 id="个人链接">链接须知</h2>
                             <p>欢迎互换友链 ^_^ 不过请确定贵站可以正常运营.</p>
+<!--                                配置来自 ConfigServiceImpl.java : yourEmail-->
                             <p>我的邮箱是 <th:block th:text="${configurations.get('yourEmail')}"></th:block> , 格式要求如下:</p>
                             <ul>
-                                <li>网站名称：13blog</li>
-                                <li>网站链接：http://13blog.site</li>
-                                <li>网站描述：十三的个人博客</li>
+                                <li>网站名称：test</li>
+                                <li>网站链接：http://test.site</li>
+                                <li>网站描述：test的个人博客</li>
                             </ul>
-
                             <p>请保证自己的链接长期有效,不然可能会被清理.</p>
 
                         </div>

@@ -132,6 +132,7 @@
                                 </div>
                             </article>
 
+<!--                            评论回复-->
                             <th:block th:unless="${#strings.isEmpty(comment.replyBody)}">
                                 <article class="comment reply">
                                     <header class="clearfix">
@@ -143,7 +144,6 @@
                                         回复时间： <th:block
                                                     th:text="${#dates.format(comment.replyCreateTime, 'yyyy-MM-dd HH:mm:ss')}"></th:block>
                                     </span>
-
                                         </div>
                                     </header>
                                     <div class="reply-body">
@@ -153,6 +153,7 @@
                             </th:block>
                         </th:block>
                     </th:block>
+
                     <th:block th:if="${null != commentPageResult}">
                         <ul class="blog-pagination" style="margin-left: 40%;margin-top:40px;">
                             <li th:class="${commentPageResult.currPage==1}?'disabled' : ''"><a
@@ -192,6 +193,7 @@
                         <input type="hidden" id="blogId" name="blogId" th:value="${blogDetailVO.blogId}"></input>
                         <div class="row">
                             <div class="col-md-6">
+<!--                                必填由 comment.js 控制-->
                                 <input type="text" name="commentator" id="commentator" placeholder="(*必填)怎么称呼你?"
                                        class="form-control input-lg">
                             </div>

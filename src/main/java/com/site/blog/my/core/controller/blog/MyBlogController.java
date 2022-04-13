@@ -20,9 +20,11 @@ import java.util.Map;
 @Controller
 public class MyBlogController {
 
+//    三个主题
     public static String theme = "default";
     //public static String theme = "yummy-jekyll";
     //public static String theme = "amaze";
+
     @Resource
     private BlogService blogService;
     @Resource
