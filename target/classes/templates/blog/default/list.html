@@ -6,6 +6,8 @@
 <div class="widewrapper main">
     <div class="container">
         <div class="row">
+
+<!--            搜索后的主页面-->
             <div class="col-md-12 blog-main">
                 <th:block th:if="${null != blogPageResult}">
                     <th:block th:each="blog,iterStat : ${blogPageResult.list}">
@@ -30,6 +32,7 @@
                                 </header>
                             </article>
                         </div>
+
                         <th:block th:if="${iterStat.last and iterStat.count%3==1}">
                             <div class="col-md-4 col-sm-4 blog-main-card"></div>
                             <div class="col-md-4 col-sm-4 blog-main-card"></div>
@@ -40,6 +43,7 @@
                     </th:block>
                 </th:block>
                 <th:block th:if="${null != blogPageResult}">
+
                     <ul class="blog-pagination">
                         <li th:class="${blogPageResult.currPage==1}?'disabled' : ''"><a
                                 th:href="@{${blogPageResult.currPage==1}?'##':'/'+${pageUrl}+'/'+${keyword}+'/' + ${blogPageResult.currPage-1}}">&laquo;</a>
