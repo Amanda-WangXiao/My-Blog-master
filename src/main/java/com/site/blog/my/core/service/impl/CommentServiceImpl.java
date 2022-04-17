@@ -66,7 +66,7 @@ public class CommentServiceImpl implements CommentService {
         }
         Map params = new HashMap();
         params.put("page", page);
-        //每页3条
+        //文章详情中的评论，每页3条
         params.put("limit", 3);
         params.put("blogId", blogId);
         params.put("commentStatus", 1);//过滤审核通过的数据
