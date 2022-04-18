@@ -235,7 +235,8 @@ public class BlogServiceImpl implements BlogService {
             if (tag != null && page > 0) {
                 Map param = new HashMap();
                 param.put("page", page);
-                param.put("limit", 9);
+//              点进tag后有分页
+                param.put("limit", 3);
                 param.put("tagId", tag.getTagId());
                 PageQueryUtil pageUtil = new PageQueryUtil(param);
                 List<Blog> blogList = blogMapper.getBlogsPageByTagId(pageUtil);
@@ -259,7 +260,8 @@ public class BlogServiceImpl implements BlogService {
             if (blogCategory != null && page > 0) {
                 Map param = new HashMap();
                 param.put("page", page);
-                param.put("limit", 9);
+//              点进category后有分页
+                param.put("limit", 3);
                 param.put("blogCategoryId", blogCategory.getCategoryId());
                 param.put("blogStatus", 1);//过滤发布状态下的数据
                 PageQueryUtil pageUtil = new PageQueryUtil(param);

@@ -123,6 +123,7 @@ public class MyBlogController {
         request.setAttribute("pageName", "标签");
         request.setAttribute("pageUrl", "tag");
         request.setAttribute("keyword", tagName);
+        //        首页侧边栏数据列表 : 0-点击最多 1-最新发布
         request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
