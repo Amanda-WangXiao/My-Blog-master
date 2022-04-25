@@ -57,7 +57,6 @@
                                             <option th:value="${c.categoryId}" th:text="${c.categoryName}"
                                                     th:selected="${null !=blog and null !=blog.blogCategoryId and blog.blogCategoryId==c.categoryId} ?true:false">
                                                 >
-<!--                                                加油啊，好好学习-->
                                             </option>
                                         </th:block>
                                     </th:block>
@@ -83,8 +82,10 @@
                 </div>
             </div>
         </div>
+
         <div class="content">
             <!-- 模态框（Modal） -->
+<!--            点击"保存文章"后弹出对话框-->
             <div class="modal fade" id="articleModal" tabindex="-1" role="dialog" aria-labelledby="articleModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -145,10 +146,10 @@
                     </div>
                 </div>
             </div>
-            <!-- /.modal -->
         </div>
     </div>
-    <!-- /.content-wrapper -->
+
+
     <!-- 引入页脚footer-fragment -->
     <div th:replace="admin/footer::footer-fragment"></div>
 </div>
