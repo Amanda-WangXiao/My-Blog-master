@@ -9,20 +9,20 @@
     <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- Main content -->
+
         <div class="content">
             <div class="container-fluid">
                 <div class="card card-primary card-outline">
                     <div class="card-header">
                         <h3 class="card-title">标签管理</h3>
-                    </div> <!-- /.card-body -->
+                    </div>
                     <div class="card-body">
                         <div class="grid-btn">
+<!--                            要不要加搜索？   ⬇-->
                             <input type="text" class="form-control col-1" id="tagName" name="tagName"
                                        placeholder="标签名称" required="true">&nbsp;&nbsp;&nbsp;
                             <button class="btn btn-info" onclick="tagAdd()"><i
@@ -35,13 +35,12 @@
                         <table id="jqGrid" class="table table-bordered">
                         </table>
                         <div id="jqGridPager"></div>
-                    </div><!-- /.card-body -->
+                    </div>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+
     <!-- 引入页脚footer-fragment -->
     <div th:replace="admin/footer::footer-fragment"></div>
 </div>

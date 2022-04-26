@@ -71,7 +71,9 @@ function search() {
     }
     //数据封装
     var searchData = {keyword: keyword};
-    //传入查询条件参数
+    // 传入查询条件参数
+    // 不需要特别传入keyword，在params里包含即可
+    // 后面查数据库可以直接模糊查询 like CONCAT('%',#{keyword},'%' )
     $("#jqGrid").jqGrid("setGridParam", {postData: searchData});
     //点击搜索按钮默认都从第一页开始
     $("#jqGrid").jqGrid("setGridParam", {page: 1});

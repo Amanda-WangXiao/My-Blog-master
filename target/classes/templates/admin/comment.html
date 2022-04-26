@@ -15,12 +15,11 @@
     <div th:replace="admin/header::header-nav"></div>
     <!-- 引入工具栏sidebar-fragment -->
     <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
-    <!-- Content Wrapper. Contains page content -->
+
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
         <!-- Main content -->
         <div class="content">
@@ -28,7 +27,7 @@
                 <div class="card card-primary card-outline">
                     <div class="card-header">
                         <h3 class="card-title">评论管理</h3>
-                    </div> <!-- /.card-body -->
+                    </div>
                     <div class="card-body">
                         <div class="grid-btn">
                             <button class="btn btn-success" onclick="checkDoneComments()"><i
@@ -47,11 +46,11 @@
                         <div id="jqGridPager"></div>
                     </div><!-- /.card-body -->
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- /.content -->
+
         <div class="content">
-            <!-- 模态框（Modal） -->
+            <!-- 模态框（Modal） 弹窗-->
             <div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-labelledby="replyModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -70,6 +69,7 @@
                                 </div>
                             </form>
                         </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                             <button type="button" class="btn btn-primary" id="saveButton">确认</button>
@@ -77,10 +77,9 @@
                     </div>
                 </div>
             </div>
-            <!-- /.modal -->
         </div>
     </div>
-    <!-- /.content-wrapper -->
+
     <!-- 引入页脚footer-fragment -->
     <div th:replace="admin/footer::footer-fragment"></div>
 </div>

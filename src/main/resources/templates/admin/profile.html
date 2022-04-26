@@ -12,23 +12,23 @@
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- Main content -->
+
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+
                     <div class="col-md-6">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <h3 class="card-title">基本信息</h3>
-                            </div> <!-- /.card-body -->
+                            </div>
                             <div class="card-body">
                                 <form role="form" id="userNameForm">
                                     <div class="form-group col-sm-8">
                                         <div class="alert alert-danger" id="updateUserName-info" style="display: none;"></div>
                                     </div>
-                                    <!-- text input -->
                                     <div class="form-group">
                                         <label>登陆名称</label>
                                         <input type="text" class="form-control" id="loginUserName"
@@ -47,20 +47,20 @@
                                         </button>
                                     </div>
                                 </form>
-                            </div><!-- /.card-body -->
+                            </div>
                         </div>
                     </div>
+
                     <div class="col-md-6">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <h3 class="card-title">修改密码</h3>
-                            </div> <!-- /.card-body -->
+                            </div>
                             <div class="card-body">
                                 <form role="form" id="userPasswordForm">
                                     <div class="form-group col-sm-8">
                                         <div class="alert alert-danger updatePassword-info" id="updatePassword-info" style="display: none;"></div>
                                     </div>
-                                    <!-- input states -->
                                     <div class="form-group">
                                         <label class="control-label"><i class="fa fa-key"></i> 原密码</label>
                                         <input type="text" class="form-control" id="originalPassword"
@@ -78,15 +78,14 @@
                                         </button>
                                     </div>
                                 </form>
-                            </div><!-- /.card-body -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </section>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+
     <!-- 引入页脚footer-fragment -->
     <div th:replace="admin/footer::footer-fragment"></div>
 </div>

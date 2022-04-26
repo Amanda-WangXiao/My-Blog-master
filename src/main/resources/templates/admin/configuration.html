@@ -9,23 +9,22 @@
     <div th:replace="admin/sidebar::sidebar-fragment(${path})"></div>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- Main content -->
+
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="card card-primary card-outline">
+
                             <div class="card-header">
                                 <h3 class="card-title">站点信息</h3>
-                            </div> <!-- /.card-body -->
+                            </div>
                             <div class="card-body">
                                 <form role="form" id="websiteForm">
-                                    <!-- text input -->
                                     <div class="form-group">
                                         <label>站点名称</label>
                                         <input type="text" class="form-control" id="websiteName"
@@ -58,17 +57,17 @@
                                         </button>
                                     </div>
                                 </form>
-                            </div><!-- /.card-body -->
+                            </div>
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <h3 class="card-title">个人信息</h3>
-                            </div> <!-- /.card-body -->
+                            </div>
                             <div class="card-body">
                                 <form role="form" id="userInfoForm">
-                                    <!-- input states -->
                                     <div class="form-group">
                                         <label class="control-label">个人头像</label>
                                         <input type="text" class="form-control" id="yourAvatar"
@@ -93,17 +92,17 @@
                                         </button>
                                     </div>
                                 </form>
-                            </div><!-- /.card-body -->
+                            </div>
                         </div>
                     </div>
+
                     <div class="col-md-4">
                         <div class="card card-primary card-outline">
                             <div class="card-header">
                                 <h3 class="card-title">底部设置</h3>
-                            </div> <!-- /.card-body -->
+                            </div>
                             <div class="card-body">
                                 <form role="form" id="footerForm">
-                                    <!-- input states -->
                                     <div class="form-group">
                                         <label class="control-label">底部About</label>
                                         <input type="text" class="form-control" id="footerAbout"
@@ -143,15 +142,14 @@
                                         </button>
                                     </div>
                                 </form>
-                            </div><!-- /.card-body -->
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div><!-- /.container-fluid -->
+            </div>
         </div>
-        <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
+
     <!-- 引入页脚footer-fragment -->
     <div th:replace="admin/footer::footer-fragment"></div>
 </div>
