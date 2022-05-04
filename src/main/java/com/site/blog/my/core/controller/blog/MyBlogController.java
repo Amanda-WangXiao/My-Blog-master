@@ -62,6 +62,10 @@ public class MyBlogController {
         request.setAttribute("hotBlogs", blogService.getBlogListForIndexPage(0));
         request.setAttribute("newBlogs", blogService.getBlogListForIndexPage(1));
         request.setAttribute("hotTags", tagService.getBlogTagCountForIndex());
+
+        //新增类别功能
+        request.setAttribute("allCategories", categoryService.getAllCategories());
+
         request.setAttribute("pageName", "首页");
         request.setAttribute("configurations", configService.getAllConfigs());
         return "blog/" + theme + "/index";

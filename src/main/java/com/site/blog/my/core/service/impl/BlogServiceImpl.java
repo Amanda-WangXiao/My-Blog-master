@@ -206,7 +206,7 @@ public class BlogServiceImpl implements BlogService {
     @Override
     public List<SimpleBlogListVO> getBlogListForIndexPage(int type) {
         List<SimpleBlogListVO> simpleBlogListVOS = new ArrayList<>();
-        List<Blog> blogs = blogMapper.findBlogListByType(type, 9);
+        List<Blog> blogs = blogMapper.findBlogListByType(type, 5);
         if (!CollectionUtils.isEmpty(blogs)) {
             for (Blog blog : blogs) {
                 SimpleBlogListVO simpleBlogListVO = new SimpleBlogListVO();
