@@ -17,19 +17,18 @@ public class ConfigServiceImpl implements ConfigService {
     @Autowired
     private BlogConfigMapper configMapper;
 
-    public static final String websiteName = "personal blog";
-    public static final String websiteDescription = "personal blog是SpringBoot2+Thymeleaf+Mybatis建造的个人博客网站.SpringBoot实战博客源码.个人博客搭建";
-    public static final String websiteLogo = "/admin/dist/img/logo2.png";
-    public static final String websiteIcon = "/admin/dist/img/favicon.png";
+    public static final String websiteName = "amandaw.site";
+    public static final String websiteDescription = "amandaw.site个人博客搭建";
+    public static final String websiteLogo = "/admin/dist/img/avatar_amanda.jpeg";
+    public static final String websiteIcon = "/admin/dist/img/avatar_amanda.jpeg";
+    public static final String yourAvatar = "/admin/dist/img/avatar_amanda.jpeg";
+    public static final String yourEmail = "amandaw.site";
+    public static final String yourName = "AmandaW";
 
-    public static final String yourAvatar = "/admin/dist/img/13.png";
-    public static final String yourEmail = "2449207463@qq.com";
-    public static final String yourName = "十三";
-
-    public static final String footerAbout = "your personal blog. have fun.";
-    public static final String footerICP = "浙ICP备 xxxxxx-x号";
-    public static final String footerCopyRight = "@2018 十三";
-    public static final String footerPoweredBy = "personal blog";
+    public static final String footerAbout = "amandaw.site";
+    public static final String footerICP = "京ICP备 xxxxxx-x号";
+    public static final String footerCopyRight = "@2022 AmandaW";
+    public static final String footerPoweredBy = "https://github.com/Amanda-WangXiao";
     public static final String footerPoweredByURL = "##";
 
     @Override
