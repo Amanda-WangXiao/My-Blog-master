@@ -36,7 +36,7 @@ public class TagController {
     }
 
 
-    @PostMapping("/tags/save")
+    @RequestMapping(value="/tags/save", method = RequestMethod.POST)
     @ResponseBody
     public Result save(@RequestParam("tagName") String tagName) {
         if (StringUtils.isEmpty(tagName)) {

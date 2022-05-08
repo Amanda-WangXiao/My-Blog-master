@@ -49,39 +49,62 @@ function reload() {
 }
 
 function tagAdd() {
+    reset();
+    $('.modal-title').html('标签添加');
+    $('#tagModal').modal('show');
+}
+
+//绑定modal上的保存按钮
+$('#saveButton').click(function () {
     var tagName = $("#tagName").val();
     if (!validCN_ENString2_18(tagName)) {
-        swal("标签名称不规范", {
-            icon: "error",
-        });
-    } else {
-        var url = '/admin/tags/save?tagName=' + tagName;
-        $.ajax({
-            type: 'POST',//方法类型
-            url: url,
-            success: function (result) {
-                if (result.resultCode == 200) {
-                    $("#tagName").val('')
-                    swal("保存成功", {
-                        icon: "success",
-                    });
-                    reload();
-                }
-                else {
-                    $("#tagName").val('')
-                    swal(result.message, {
-                        icon: "error",
-                    });
-                }
-                ;
-            },
-            error: function () {
-                swal("操作失败", {
+        $('#edit-error-msg').css("display", "block");
+        $('#edit-error-msg').html("请输入符合规范的名称！");
+        return;
+    }
+    var params = $("#tagForm").serialize();
+    var url = '/admin/tags/save';
+    // if (linkId != null && linkId > 0) {
+    //     url = '/admin/links/update';
+    // }
+
+    $.ajax({
+        type: 'POST',//方法类型
+        url: url,
+        data: params,
+        success: function (result) {
+            if (result.resultCode == 200) {
+                $("#tagName").val('');
+                swal("保存成功", {
+                    icon: "success",
+                });
+                reload();
+            }
+            else {
+                $("#tagName").val('');
+                swal(result.message, {
                     icon: "error",
                 });
             }
-        });
+            ;
+        },
+        error: function () {
+            swal("操作失败", {
+                icon: "error",
+            });
+        }
+    });
+});
+
+function tagEdit() {
+    reset();
+    var id = getSelectedRow();
+    if (id == null) {
+        return;
     }
+    $('.modal-title').html('标签编辑');
+    $('#tagModal').modal('show');
+    $("#tagd").val(id);
 }
 
 function deleteTag() {

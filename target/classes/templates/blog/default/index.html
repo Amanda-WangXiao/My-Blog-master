@@ -134,6 +134,25 @@
                         </ul>
                     </div>
                 </div>
+
+<!--                新增类别功能-->
+                <div class="aside-widget">
+                    <header>
+                        <h3>类别</h3>
+                    </header>
+                    <div class="body clearfix">
+                        <ul class="tags">
+                            <th:block th:if="${null != allCategories}">
+                                <th:block th:each="category : ${allCategories}">
+                                    <li><a th:href="@{'/category/' + ${category.categoryName}}">
+                                        <th:block th:text="${category.categoryName}+'('+${category.categoryName}+')'"></th:block>
+                                    </a></li>
+                                </th:block>
+                            </th:block>
+                        </ul>
+                    </div>
+                </div>
+
             </aside>
         </div>
     </div>

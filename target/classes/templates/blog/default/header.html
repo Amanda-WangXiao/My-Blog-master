@@ -23,6 +23,7 @@
 <!--            网页Logo   配置来自 ConfigServiceImpl.java-->
             <a th:href="@{/index}" id="logo">
                 <img th:src="@{${configurations.get('websiteLogo')}}" class="logo-img" alt="my personal blog">
+                <th:block th:text="amandaw.site个人博客搭建"></th:block>
             </a>
 
 <!--            ？？？-->
@@ -62,6 +63,9 @@
                 <th:block th:text="${pageName}"></th:block>
 <!--                搜索时改变为："搜索：xxxx"-->
                 <th:block th:if="${null != keyword}" th:text="' : '+${keyword}"></th:block>
+
+<!--                新功能：返回按钮-->
+                <th:block th:if="${null != keyword}" <li><a th:href="@{/index}">【返回主页】</a></li></th:block>
             </div>
 
             <div class="clean-searchbox">
