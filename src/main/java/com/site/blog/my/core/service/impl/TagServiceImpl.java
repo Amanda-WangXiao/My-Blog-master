@@ -2,6 +2,7 @@ package com.site.blog.my.core.service.impl;
 
 import com.site.blog.my.core.dao.BlogTagMapper;
 import com.site.blog.my.core.dao.BlogTagRelationMapper;
+import com.site.blog.my.core.entity.BlogLink;
 import com.site.blog.my.core.entity.BlogTag;
 import com.site.blog.my.core.entity.BlogTagCount;
 import com.site.blog.my.core.entity.BlogTagRelation;
@@ -44,6 +45,16 @@ public class TagServiceImpl implements TagService {
             return blogTagMapper.insertSelective(blogTag) > 0;
         }
         return false;
+    }
+
+    @Override
+    public BlogTag selectById(Integer id) {
+        return blogTagMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public Boolean updateTag(BlogTag tempTag) {
+        return blogTagMapper.updateByPrimaryKeySelective(tempTag) > 0;
     }
 
     @Override

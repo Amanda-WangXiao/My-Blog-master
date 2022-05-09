@@ -1,5 +1,7 @@
 package com.site.blog.my.core.controller.admin;
 
+import com.site.blog.my.core.entity.BlogLink;
+import com.site.blog.my.core.entity.BlogTag;
 import com.site.blog.my.core.service.TagService;
 import com.site.blog.my.core.util.PageQueryUtil;
 import com.site.blog.my.core.util.Result;
@@ -35,7 +37,9 @@ public class TagController {
         return ResultGenerator.genSuccessResult(tagService.getBlogTagPage(pageUtil));
     }
 
-
+    /**
+     * 标签添加
+     */
     @RequestMapping(value="/tags/save", method = RequestMethod.POST)
     @ResponseBody
     public Result save(@RequestParam("tagName") String tagName) {
@@ -49,6 +53,38 @@ public class TagController {
         }
     }
 
+    /**
+     * 详情
+     */
+    @GetMapping("/tags/info/{id}")
+    @ResponseBody
+    public Result info(@PathVariable("id") Integer id) {
+        BlogTag tag = tagService.selectById(id);
+        return ResultGenerator.genSuccessResult(tag);
+    }
+
+    /**
+     * 标签修改
+     */
+    @RequestMapping(value = "/tags/update", method = RequestMethod.POST)
+    @ResponseBody
+    public Result update(@RequestParam("tagId") Integer tagId,
+                         @RequestParam("tagName") String tagName,
+                         @RequestParam("isDeleted") Byte isDeleted) {
+        BlogTag tempTag = tagService.selectById(tagId);
+        if (tempTag == null) {
+            return ResultGenerator.genFailResult("无数据！");
+        }
+        if (StringUtils.isEmpty(tagName)|| isDeleted!=0) {
+            return ResultGenerator.genFailResult("参数异常！");
+        }
+        tempTag.setTagName(tagName);
+        return ResultGenerator.genSuccessResult(tagService.updateTag(tempTag));
+    }
+
+    /**
+     * 标签删除
+     */
     @PostMapping("/tags/delete")
     @ResponseBody
     public Result delete(@RequestBody Integer[] ids) {

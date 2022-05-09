@@ -56,6 +56,7 @@ function tagAdd() {
 
 //绑定modal上的保存按钮
 $('#saveButton').click(function () {
+    var tagId = $("#linkId").val();
     var tagName = $("#tagName").val();
     if (!validCN_ENString2_18(tagName)) {
         $('#edit-error-msg').css("display", "block");
@@ -64,25 +65,24 @@ $('#saveButton').click(function () {
     }
     var params = $("#tagForm").serialize();
     var url = '/admin/tags/save';
-    // if (linkId != null && linkId > 0) {
-    //     url = '/admin/links/update';
-    // }
-
+    if (tagId != null && tagId > 0) {
+        url = '/admin/tags/update';
+    }
     $.ajax({
         type: 'POST',//方法类型
         url: url,
         data: params,
         success: function (result) {
-            if (result.resultCode == 200) {
-                $("#tagName").val('');
+            if (result.resultCode == 200 && result.data) {
+                $('#tagModal').modal('hide');
                 swal("保存成功", {
                     icon: "success",
                 });
                 reload();
             }
             else {
-                $("#tagName").val('');
-                swal(result.message, {
+                $('#tagModal').modal('hide');
+                swal("保存失败", {
                     icon: "error",
                 });
             }
@@ -102,9 +102,24 @@ function tagEdit() {
     if (id == null) {
         return;
     }
-    $('.modal-title').html('标签编辑');
+    reset();
+    //请求数据
+    $.get("/admin/tags/info/" + id, function (r) {
+        if (r.resultCode == 200 && r.data != null) {
+            //填充数据至modal
+            $("#tagName").val(r.data.tagName);
+            //根据原linkType值设置select选择器为选中状态
+            // if (r.data.linkType == 1) {
+            //     $("#linkType option:eq(1)").prop("selected", 'selected');
+            // }
+            // if (r.data.linkType == 2) {
+            //     $("#linkType option:eq(2)").prop("selected", 'selected');
+            // }
+        }
+    });
+    $('.modal-title').html('标签修改');
     $('#tagModal').modal('show');
-    $("#tagd").val(id);
+    $("#tagId").val(id);
 }
 
 function deleteTag() {
@@ -141,4 +156,11 @@ function deleteTag() {
             }
         }
     );
+}
+
+function reset() {
+    $("#tagName").val('');
+    $("#tagId").val(0);
+    $('#edit-error-msg').css("display", "none");
+    // $("#linkType option:first").prop("selected", 'selected');
 }

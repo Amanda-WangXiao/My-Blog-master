@@ -23,10 +23,12 @@
                     <div class="card-body">
                         <div class="grid-btn">
 <!--                            要不要加搜索？   ⬇-->
-                            <input type="text" class="form-control col-1" id="tagName" name="tagName"
-                                       placeholder="标签名称" required="true">&nbsp;&nbsp;&nbsp;
                             <button class="btn btn-info" onclick="tagAdd()"><i
                                     class="fa fa-plus"></i>&nbsp;新增
+                            </button>
+<!--                            新增tag页修改功能-->
+                            <button class="btn btn-info" onclick="tagEdit()"><i
+                                    class="fa fa-pencil-square-o"></i>&nbsp;修改
                             </button>
                             <button class="btn btn-danger" onclick="deleteTag()"><i
                                     class="fa fa-trash-o"></i>&nbsp;删除
@@ -35,6 +37,43 @@
                         <table id="jqGrid" class="table table-bordered">
                         </table>
                         <div id="jqGridPager"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<!--        新增tag Modal-->
+        <div class="content">
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="tagModal" tabindex="-1" role="dialog" aria-labelledby="tagModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                    aria-hidden="true">&times;</span></button>
+                            <h6 class="modal-title" id="tagModalLabel">Modal</h6>
+                        </div>
+                        <div class="modal-body">
+                            <form id="tagForm">
+                                <div class="form-group">
+                                    <div class="alert alert-danger" id="edit-error-msg" style="display: none;">
+                                        错误信息展示栏。
+                                    </div>
+                                </div>
+                                <input type="hidden" class="form-control" id="tagId" name="tagId">
+
+                                <div class="form-group">
+                                    <label for="tagName" class="control-label">标签名称:</label>
+                                    <input type="text" class="form-control" id="tagName" name="tagName"
+                                           placeholder="请输入标签名称" required="true">
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="button" class="btn btn-primary" id="saveButton">确认</button>
+                        </div>
                     </div>
                 </div>
             </div>
